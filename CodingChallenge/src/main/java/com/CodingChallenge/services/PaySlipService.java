@@ -46,8 +46,8 @@ public class PaySlipService {
         double superAnnuation = this.getSuper(employee.getAnnualSalary(), employee.getSuperRate());
         int netIncome = grossIncome - incomeTax;
 
-        PaySlip paySlip = new PaySlip(employee, fromDate, toDate, grossIncome, incomeTax, superAnnuation, netIncome);
-        return paySlip;
+        return new PaySlip(employee, fromDate, toDate, grossIncome, incomeTax, superAnnuation, netIncome);
+
     }
 
 
