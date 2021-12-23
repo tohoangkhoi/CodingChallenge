@@ -27,7 +27,7 @@ public class PaySlipService {
     private NavigableMap<Integer, TaxOnIncome> taxableIncomeStore = new TreeMap<>();
 
     /*Function addTaxbleIncomes()
-     * Add these kind of objects to map:
+     * Add these kinds of objects to map:
      *  (key: taxRangeUpperBound, value: taxOnIncome(taxRate, taxAddition,taxRangeLowerBound)
      */
     private void addTaxableIncomes() {
@@ -43,7 +43,7 @@ public class PaySlipService {
         String toDate = this.getDateto(employee.getPaymentMonth());
         int grossIncome = this.getGrossIncome(employee.getAnnualSalary());
         int incomeTax = this.getTaxIncome(employee.getAnnualSalary());
-        int superAnnuation = this.getSuper(employee.getAnnualSalary(), employee.getSuperRates());
+        double superAnnuation = this.getSuper(employee.getAnnualSalary(), employee.getSuperRate());
         int netIncome = grossIncome - incomeTax;
 
         PaySlip paySlip = new PaySlip(employee, fromDate, toDate, grossIncome, incomeTax, superAnnuation, netIncome);
@@ -72,7 +72,7 @@ public class PaySlipService {
     }
 
     public int getSuper(int annualSalary, double superRate) {
-        return (int) (this.getGrossIncome(annualSalary)*superRate);
+        return  (int)(this.getGrossIncome(annualSalary) * superRate);
     }
 
     public String getDateFrom() {

@@ -1,21 +1,21 @@
 package com.CodingChallenge.models;
 
 public class Employee {
-    private String firstname;
+    private String firstName;
     private String lastName;
     private int annualSalary;
     private int paymentMonth;
-    private float superRates;
+    private double superRate;
 
     public Employee() {
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstname(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -42,11 +42,11 @@ public class Employee {
         this.paymentMonth = paymentMonth;
     }
 
-    public float getSuperRates() {
-        return superRates;
+    public double getSuperRate() {
+        return superRate;
     }
 
-    public void setSuperRates(float superRates) {
-        this.superRates = superRates;
+    public void setSuperRates(double superRate) {
+        this.superRate = superRate;
     }
 }

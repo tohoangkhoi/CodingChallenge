@@ -10,12 +10,12 @@ public class PaySlip {
     private String toDate;
     private int grossIncome;
     private int incomeTax;
-    private int superAnnuation;
+    private double superAnnuation;
     private int netIncome;
 
     private TaxRangeConstant taxable;
 
-    public PaySlip(Employee employee, String fromDate, String toDate, int grossIncome, int incomeTax, int superAnnuation, int netIncome) {
+    public PaySlip(Employee employee, String fromDate, String toDate, int grossIncome, int incomeTax, double superAnnuation, int netIncome) {
         this.employee = employee;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -66,11 +66,11 @@ public class PaySlip {
         this.incomeTax = incomeTax;
     }
 
-    public int getSuperAnnuation() {
+    public double getSuperAnnuation() {
         return superAnnuation;
     }
 
-    public void setSuperAnnuation(int superAnnuation) {
+    public void setSuperAnnuation(double superAnnuation) {
         this.superAnnuation = superAnnuation;
     }
 

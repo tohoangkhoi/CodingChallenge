@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -20,8 +21,9 @@ public class PaySlipController {
     private PaySlipService paySlipService;
 
     @GetMapping("/")
-    public ResponseEntity<?> getDummyEmployee(@RequestBody Employee employee) {
-
-        return new ResponseEntity<PaySlip>(paySlipService.generatePayslip(employee), HttpStatus.CREATED);
+    public List<?> getDummyEmployee(@RequestBody List<Employee> employeeList) {
+        List<PaySlip> paySlips = new ArrayList<>();
+        employeeList.forEach(employee -> paySlips.add(paySlipService.generatePayslip(employee)));
+        return paySlips;
     }
 }
