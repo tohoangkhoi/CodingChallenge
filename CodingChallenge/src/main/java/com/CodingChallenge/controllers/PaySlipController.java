@@ -21,9 +21,14 @@ public class PaySlipController {
     private PaySlipService paySlipService;
 
     @GetMapping("/")
-    public List<?> getDummyEmployee(@RequestBody List<Employee> employeeList) {
+    public List<?> getEmployeesPayslip(@RequestBody List<Employee> employeeList) {
+
         List<PaySlip> paySlips = new ArrayList<>();
-        employeeList.forEach(employee -> paySlips.add(paySlipService.generatePayslip(employee)));
+        for(Employee employee: employeeList) {
+            if(paySlipService.validateEmployeeDetail(employee)) {
+                paySlips.add(paySlipService.generatePayslip(employee));
+            }
+        }
         return paySlips;
     }
 }

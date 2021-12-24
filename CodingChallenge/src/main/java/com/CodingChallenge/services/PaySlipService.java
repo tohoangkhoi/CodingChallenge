@@ -1,5 +1,7 @@
 package com.CodingChallenge.services;
 
+import com.CodingChallenge.exceptions.InvalidAnnualSalaryException;
+import com.CodingChallenge.exceptions.InvalidSuperRateException;
 import com.CodingChallenge.helpers.TaxOnIncome;
 import com.CodingChallenge.helpers.TaxOnIncomeConstant;
 import com.CodingChallenge.helpers.TaxRangeConstant;
@@ -18,12 +20,12 @@ public class PaySlipService {
     private TaxRangeConstant taxable;
 
     /*
-     *The navigable map provide a very help function:
-     *ceilingKey(int value) :
-     *It returns the lowest key in the map which
-     greater than the "value". This function will help us determine the correct
-     tax for a specific annual salary.
-     */
+         *The navigable map provide a very help function:
+         *ceilingKey(int value) :
+         *It returns the lowest key in the map which
+         greater than the "value". This function will help us determine the correct
+         tax for a specific annual salary.
+         */
     private NavigableMap<Integer, TaxOnIncome> taxableIncomeStore = new TreeMap<>();
 
     /*Function addTaxbleIncomes()
@@ -39,6 +41,7 @@ public class PaySlipService {
     }
 
     public PaySlip generatePayslip(Employee employee) {
+
         String fromDate = this.getDateFrom();
         String toDate = this.getDateto(employee.getPaymentMonth());
         int grossIncome = this.getGrossIncome(employee.getAnnualSalary());
@@ -50,6 +53,18 @@ public class PaySlipService {
 
     }
 
+    public boolean validateEmployeeDetail(Employee employee) {
+
+        if(employee.getAnnualSalary() <= 0) {
+            throw new InvalidAnnualSalaryException("Employee annual salary is invalid");
+        }
+        else if(employee.getSuperRate() < 0 || employee.getSuperRate() > 0.5) {
+            throw new InvalidSuperRateException("Employee annual salary is invalid");
+        }
+        else {
+            return true;
+        }
+    }
 
     public TaxOnIncome getTaxOnIncome(int annualSalary) {
         this.addTaxableIncomes();
@@ -59,7 +74,7 @@ public class PaySlipService {
 
     public int getTaxIncome(int annualSalary) {
         TaxOnIncome taxOnIncome = getTaxOnIncome(annualSalary);
-        return (int)((taxOnIncome.taxRate + (annualSalary - taxOnIncome.lowerBound) * taxOnIncome.taxAddition)/12) ;
+        return (int) Math.ceil((taxOnIncome.taxRate + (annualSalary - taxOnIncome.lowerBound) * taxOnIncome.taxAddition)/12) ;
     }
 
     public int getGrossIncome(int annualSalary) {
@@ -81,10 +96,11 @@ public class PaySlipService {
         return dateFrom.format(formatter);
     }
 
-
     public String getDateto(int paymentMonth ) {
         LocalDate dateTo = LocalDate.now().plusMonths(paymentMonth);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL");
         return dateTo.format(formatter);
     }
+
+
 }

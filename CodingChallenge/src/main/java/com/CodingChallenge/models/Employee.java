@@ -10,6 +10,14 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(String firstName, String lastName, int annualSalary, int paymentMonth, double superRate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.annualSalary = annualSalary;
+        this.paymentMonth = paymentMonth;
+        this.superRate = superRate;
+    }
+
     public String getFirstName() {
         return firstName;
     }

@@ -81,4 +81,18 @@ public class PaySlip {
     public void setNetIncome(int netIncome) {
         this.netIncome = netIncome;
     }
+
+    @Override
+    public String toString() {
+        return "PaySlip{" +
+                "employee=" + employee +
+                ", fromDate='" + fromDate + '\'' +
+                ", toDate='" + toDate + '\'' +
+                ", grossIncome=" + grossIncome +
+                ", incomeTax=" + incomeTax +
+                ", superAnnuation=" + superAnnuation +
+                ", netIncome=" + netIncome +
+                ", taxable=" + taxable +
+                '}';
+    }
 }
