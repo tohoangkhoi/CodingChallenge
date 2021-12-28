@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.NavigableMap;
-import java.util.TreeMap;
+import java.util.*;
 
 @Service
 public class PaySlipService {
@@ -42,24 +40,35 @@ public class PaySlipService {
 
     public PaySlip generatePayslip(Employee employee) {
 
-        String fromDate = this.getDateFrom();
-        String toDate = this.getDateto(employee.getPaymentMonth());
-        int grossIncome = this.getGrossIncome(employee.getAnnualSalary());
-        int incomeTax = this.getTaxIncome(employee.getAnnualSalary());
-        double superAnnuation = this.getSuper(employee.getAnnualSalary(), employee.getSuperRate());
-        int netIncome = grossIncome - incomeTax;
+        String fromDate = getDateFrom();
+        String toDate = getDateto(employee.getPaymentMonth());
+        int grossIncome = getGrossIncome(employee.getAnnualSalary());
+        int incomeTax = getTaxIncome(employee.getAnnualSalary());
+        int superAnnuation = getSuper(employee.getAnnualSalary(), employee.getSuperRate());
+        int netIncome = getNetIncome(employee.getAnnualSalary());
 
         return new PaySlip(employee, fromDate, toDate, grossIncome, incomeTax, superAnnuation, netIncome);
 
     }
 
+    public List<PaySlip> returnEmployeesPayslip(List<Employee> employeeList) {
+        List<PaySlip>returnPaySlip = new ArrayList<>();
+        for(Employee e : employeeList) {
+            if(validateEmployeeDetail(e)) {
+                returnPaySlip.add(generatePayslip(e));
+            }
+        }
+        return returnPaySlip;
+    }
+
+
     public boolean validateEmployeeDetail(Employee employee) {
 
         if(employee.getAnnualSalary() <= 0) {
-            throw new InvalidAnnualSalaryException("Employee annual salary is invalid");
+            throw new InvalidAnnualSalaryException(employee.getFirstName() +  " annual salary should be greater than 0.");
         }
         else if(employee.getSuperRate() < 0 || employee.getSuperRate() > 0.5) {
-            throw new InvalidSuperRateException("Employee annual salary is invalid");
+            throw new InvalidSuperRateException(employee.getFirstName() + "'s super rate is invalid.");
         }
         else {
             return true;

@@ -20,15 +20,12 @@ public class PaySlipController {
     @Autowired
     private PaySlipService paySlipService;
 
-    @GetMapping("/")
-    public List<?> getEmployeesPayslip(@RequestBody List<Employee> employeeList) {
+    public PaySlipController(PaySlipService paySlipService) {
+        this.paySlipService = paySlipService;
+    }
 
-        List<PaySlip> paySlips = new ArrayList<>();
-        for(Employee employee: employeeList) {
-            if(paySlipService.validateEmployeeDetail(employee)) {
-                paySlips.add(paySlipService.generatePayslip(employee));
-            }
-        }
-        return paySlips;
+    @GetMapping("/")
+    public List<PaySlip> getEmployeesPayslip(@RequestBody List<Employee> employeeList) {
+        return paySlipService.returnEmployeesPayslip(employeeList);
     }
 }
