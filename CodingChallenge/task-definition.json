@@ -1,16 +1,16 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesma-task-definition:9",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesma-task-definition:14",
     "containerDefinitions": [
         {
             "name": "saesma-container",
-            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge",
-            "cpu": 1024,
-            "memory": 5120,
+            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge:latest",
+            "cpu": 512,
+            "memory": 512,
             "links": [],
             "portMappings": [
                 {
-                    "containerPort": 80,
-                    "hostPort": 80,
+                    "containerPort": 8080,
+                    "hostPort": 8080,
                     "protocol": "tcp"
                 }
             ],
@@ -28,42 +28,57 @@
             "dockerSecurityOptions": [],
             "dockerLabels": {},
             "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/saesma-task-definition",
+                    "awslogs-region": "ap-southeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
             "systemControls": []
         }
     ],
     "family": "saesma-task-definition",
-    "networkMode": null,
-    "revision": 9,
+    "executionRoleArn": "arn:aws:iam::892743736725:role/ecsTaskExecutionRole",
+    "revision": 14,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
         },
         {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
-            "name": "ecs.capability.task-eni"
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
         }
     ],
     "placementConstraints": [],
     "compatibilities": [
+        "EXTERNAL",
         "EC2"
     ],
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
     "requiresCompatibilities": [
         "EC2"
     ],
-    "cpu": "1024",
-    "memory": "5120",
-    "registeredAt": "2021-12-28T22:51:48.957Z",
+    "cpu": "512",
+    "memory": "512",
+    "registeredAt": "2021-12-28T23:36:29.375Z",
     "registeredBy": "arn:aws:iam::892743736725:root",
     "tags": [
         {
@@ -72,7 +87,7 @@
         },
         {
             "key": "ecs:taskDefinition:stackId",
-            "value": "arn:aws:cloudformation:ap-southeast-2:892743736725:stack/ECS-Console-V2-TaskDefinition-ac3e10c5-b5c9-4582-96b4-2b078fe15c42/ba52f300-6830-11ec-95e1-067cfaa9a0f4"
+            "value": "arn:aws:cloudformation:ap-southeast-2:892743736725:stack/ECS-Console-V2-TaskDefinition-5a8ce837-0a4b-4884-8ce9-8c86b00ff0e2/f81214e0-6836-11ec-bbf8-0ab53cf0e518"
         }
     ]
 }
