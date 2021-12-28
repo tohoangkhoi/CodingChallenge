@@ -32,7 +32,7 @@
         }
     ],
     "family": "saesma-task-definition",
-    "networkMode": "awsvpc",
+    "networkMode": null,
     "revision": 9,
     "volumes": [],
     "status": "ACTIVE",
