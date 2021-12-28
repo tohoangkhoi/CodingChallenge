@@ -55,7 +55,7 @@ jobs:
     - name: Build and run with Maven
       run: 
         cd CodingChallenge &&
-        sudo ./mvnw package && 
+        ./mvnw package && 
         java -jar .\target\CodingChallenge-0.0.1-SNAPSHOT.jar
 
 
