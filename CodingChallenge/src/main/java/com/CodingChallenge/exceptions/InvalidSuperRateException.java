@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class InvalidSuperRateException extends RuntimeException{
+    //Constructor
     public InvalidSuperRateException(String message) {
         super(message);
     }
