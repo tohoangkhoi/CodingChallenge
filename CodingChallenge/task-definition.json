@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesmatd2:2",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesmatd2:3",
     "containerDefinitions": [
         {
             "name": "saesma-container",
-            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge:7c915265a97b50ed9dfacac4e548278ae18b6d20",
+            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge:d41d97eb9d819ad53620cae4bb714ce159c54035",
             "cpu": 256,
             "memory": 512,
             "portMappings": [
@@ -32,7 +32,7 @@
     "taskRoleArn": "arn:aws:iam::892743736725:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::892743736725:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 2,
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -78,7 +78,7 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2022-01-01T04:10:07.074Z",
+    "registeredAt": "2022-01-01T04:37:33.873Z",
     "registeredBy": "arn:aws:iam::892743736725:root",
     "tags": [
         {
