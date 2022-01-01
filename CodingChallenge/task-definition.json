@@ -66,8 +66,7 @@
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EC2",
-        "FARGATE"
+        "EC2"
     ],
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
