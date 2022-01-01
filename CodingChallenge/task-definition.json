@@ -1,12 +1,11 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesmatd2:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesmatd2:2",
     "containerDefinitions": [
         {
             "name": "saesma-container",
-            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge",
+            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge:7c915265a97b50ed9dfacac4e548278ae18b6d20",
             "cpu": 256,
             "memory": 512,
-            "links": [],
             "portMappings": [
                 {
                     "containerPort": 80,
@@ -15,19 +14,9 @@
                 }
             ],
             "essential": true,
-            "entryPoint": [],
-            "command": [],
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "secrets": [],
-            "dnsServers": [],
-            "dnsSearchDomains": [],
-            "extraHosts": [],
-            "dockerSecurityOptions": [],
-            "dockerLabels": {},
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -35,17 +24,15 @@
                     "awslogs-group": "/ecs/saesmatd2",
                     "awslogs-region": "ap-southeast-2",
                     "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
-            },
-            "systemControls": []
+                }
+            }
         }
     ],
     "family": "saesmatd2",
     "taskRoleArn": "arn:aws:iam::892743736725:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::892743736725:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -60,9 +47,6 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
         },
         {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
@@ -94,7 +78,7 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2022-01-01T04:07:34.791Z",
+    "registeredAt": "2022-01-01T04:10:07.074Z",
     "registeredBy": "arn:aws:iam::892743736725:root",
     "tags": [
         {
