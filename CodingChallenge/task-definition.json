@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesmatd2:3",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesmatd2:4",
     "containerDefinitions": [
         {
             "name": "saesma-container",
-            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge:d41d97eb9d819ad53620cae4bb714ce159c54035",
+            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge:7c489d55aee5065703b4de30040d2e879b9fbb8f",
             "cpu": 256,
             "memory": 512,
             "portMappings": [
@@ -32,9 +32,9 @@
     "taskRoleArn": "arn:aws:iam::892743736725:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::892743736725:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 9,
+    "revision": 4,
     "volumes": [],
-    "status": "ACTIVE",
+    "status": "INACTIVE",
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
@@ -66,7 +66,8 @@
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EC2"
+        "EC2",
+        "FARGATE"
     ],
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
@@ -77,16 +78,8 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2022-01-01T04:37:33.873Z",
+    "registeredAt": "2022-01-01T04:40:11.241Z",
+    "deregisteredAt": "2022-01-01T04:43:02.830Z",
     "registeredBy": "arn:aws:iam::892743736725:root",
-    "tags": [
-        {
-            "key": "ecs:taskDefinition:createdFrom",
-            "value": "ecs-console-v2"
-        },
-        {
-            "key": "ecs:taskDefinition:stackId",
-            "value": "arn:aws:cloudformation:ap-southeast-2:892743736725:stack/ECS-Console-V2-TaskDefinition-1ca430cb-50a8-4e23-8476-56fde9445a58/56591c50-6ab8-11ec-acff-063d088d3de0"
-        }
-    ]
+    "tags": []
 }
