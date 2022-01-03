@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesmatd2:4",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:892743736725:task-definition/saesmatd2:11",
     "containerDefinitions": [
         {
             "name": "saesma-container",
-            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge:7c489d55aee5065703b4de30040d2e879b9fbb8f",
+            "image": "892743736725.dkr.ecr.ap-southeast-2.amazonaws.com/saesmacodingchallenge:84242e2a36f4d3c58efafe7acc13d05328062ba2",
             "cpu": 256,
             "memory": 512,
             "portMappings": [
@@ -32,9 +32,9 @@
     "taskRoleArn": "arn:aws:iam::892743736725:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::892743736725:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 4,
+    "revision": 11,
     "volumes": [],
-    "status": "INACTIVE",
+    "status": "ACTIVE",
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
@@ -78,8 +78,7 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2022-01-01T04:40:11.241Z",
-    "deregisteredAt": "2022-01-01T04:43:02.830Z",
+    "registeredAt": "2022-01-03T11:58:23.165Z",
     "registeredBy": "arn:aws:iam::892743736725:root",
     "tags": []
 }
